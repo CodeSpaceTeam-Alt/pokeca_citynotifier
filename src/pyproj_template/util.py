@@ -2,10 +2,12 @@
 
 utility for notify_ip module
 """
-from argparse import ArgumentParser
-from pyproj_template import VERSION
 import sys
+from argparse import ArgumentParser
+
 import git
+
+from pyproj_template import VERSION
 
 
 def get_args():
