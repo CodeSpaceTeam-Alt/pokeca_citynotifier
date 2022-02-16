@@ -18,9 +18,6 @@ def get_args():
     Returns:
         NameSpace: parser.parse_args() returns
 
-    Note:
-        No note
-
     """
     parser = ArgumentParser(description='IP notify tool')
     parser.add_argument('--version', default=False, action="store_true",
@@ -31,16 +28,7 @@ def get_args():
 
 
 def main():
-    """main, function
-
-    main function
-
-    Args:
-        No Argument
-
-    Returns:
-        None:
-    """
+    """main, function"""
     parser = get_args()
     args = parser.parse_args()
     if args.version is True:
