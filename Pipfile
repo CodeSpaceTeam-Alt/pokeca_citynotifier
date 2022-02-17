@@ -13,6 +13,7 @@ pytest = "*"
 bandit = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
+sphinx-multiversion = "*"
 
 [requires]
 python_version = "3.8"

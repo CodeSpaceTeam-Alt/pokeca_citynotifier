@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, './src')
+sys.path.insert(0, '../../src')
 
 from pyproj_template import VERSION
 
@@ -39,7 +39,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
     'sphinx.ext.napoleon',
-    'sphinx.ext.githubpages'
+    'sphinx.ext.githubpages',
+    'sphinx_multiversion',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -78,3 +79,8 @@ html_static_path = ['_static']
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+# -- Options for sphinx-multiversion -----------------------------------------
+
+smv_tag_whitelist = r'^v\d+\.\d+\.\d+$'   # これにマッチしたタグを抽出
+smv_branch_whitelist = r'^master$'  # これにマッチしたブランチを抽出
