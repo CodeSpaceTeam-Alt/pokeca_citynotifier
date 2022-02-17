@@ -1,3 +1,6 @@
 *.egg-info
 *.tar.gz
 __pycache__
+docs/source/*
+!docs/source/conf.py
+!docs/source/index.rst
