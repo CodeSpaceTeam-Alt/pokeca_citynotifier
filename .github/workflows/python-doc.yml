@@ -1,0 +1,40 @@
+name: Python Document deployment
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       python-version: ["3.8"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pipenv
+        pipenv install
+        pipenv install --dev
+    - name: Generate Document
+      run: |
+        pipenv run sphinx-apidoc -F -H pyproj_template -o docs/source src
+        pipenv run sphinx-multiversion docs/source docs/build
+    - name: Git setting
+      run: |
+        git config --local user.email "alt.no.rock@gmail.com"
+        git config --local user.name "Github Actions"
+    - name: Commit files
+      run: |
+        git checkout main
+        git add docs
+        git commit -m "Update: $GITHUB_REF document create by CI/CD " -a
+        git pull
+        git push origin main
