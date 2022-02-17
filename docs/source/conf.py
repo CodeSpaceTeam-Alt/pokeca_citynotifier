@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, '../../src')
+sys.path.insert(0, os.path.abspath('../../src'))
 
 from pyproj_template import VERSION
 
@@ -83,4 +83,4 @@ todo_include_todos = True
 # -- Options for sphinx-multiversion -----------------------------------------
 
 smv_tag_whitelist = r'^v\d+\.\d+\.\d+$'   # これにマッチしたタグを抽出
-smv_branch_whitelist = r'^master$'  # これにマッチしたブランチを抽出
+smv_branch_whitelist = r'^(master|develop)$'  # これにマッチしたブランチを抽出
