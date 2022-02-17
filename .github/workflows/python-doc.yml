@@ -33,7 +33,8 @@ jobs:
         git config --local user.name "Github Actions"
     - name: Commit files
       run: |
+        git checkout main
         git add docs
-        git commit -m "Update: document by CI/CD" -a
+        git commit -m "Update: $GITHUB_REF document create by CI/CD " -a
         git pull
-        git push origin ${GITHUB_HEAD_REF}
+        git push origin main
