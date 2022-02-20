@@ -83,4 +83,4 @@ todo_include_todos = True
 # -- Options for sphinx-multiversion -----------------------------------------
 
 smv_tag_whitelist = r'^v\d+\.\d+\.\d+$'   # これにマッチしたタグを抽出
-smv_branch_whitelist = r'^(master|develop)$'  # これにマッチしたブランチを抽出
+smv_branch_whitelist = r'^(main|develop)$'  # これにマッチしたブランチを抽出
