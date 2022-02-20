@@ -1,16 +1,17 @@
-.. pyproj_template documentation master file, created by
-   sphinx-quickstart on Thu Feb 17 01:50:58 2022.
+.. pyproject_template documentation master file, created by
+   sphinx-quickstart on Sun Feb 20 22:51:07 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to pyproj_template's documentation!
-===========================================
+Welcome to pyproject_template's documentation!
+==============================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Contents:
 
-   pyproj_template
+   pyproj_template.rst
+
 
 
 Indices and tables
