@@ -32,12 +32,14 @@ jobs:
         git config --local user.name "Github Actions"
         git fetch
     - name: get develop branch
-      if: github.ref != 'develop'
+      if: github.ref != 'refs/heads/develop'
       run: |
         git branch develop origin/develop
     - name: get main branch
-      if: github.ref != 'main'
+      if: github.ref != 'refs/heads/main'
       run: |
+        git branch
+        echo github.ref
         git branch main origin/main
     - name: checkout branch refs/tag -> main
       if: contains(github.ref, 'refs/tags/')
