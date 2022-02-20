@@ -30,19 +30,26 @@ jobs:
       run: |
         git config --local user.email "alt.no.rock@gmail.com"
         git config --local user.name "Github Actions"
-    - name: checkout branch
+        git fetch
+    - name: get develop branch
+      if: github.ref != 'develop'
+      run: |
+        git branch develop origin/develop
+    - name: get main branch
+      if: github.ref != 'main'
+      run: |
+        git branch main origin/main
+    - name: checkout branch refs/tag -> main
       if: contains(github.ref, 'refs/tags/')
       run: |
-        git fetch
         git checkout main
-    - name: checkout branch in MR
+    - name: checkout branch merge/* -> ref-branch
       if: contains(github.ref, 'merge')
       run: |
-        git fetch
         git checkout $GITHUB_HEAD_REF
     - name: Generate Document
       run: |
-        git branch
+        git pull --tags
         pipenv run sphinx-apidoc -F -H pyproj_template -o docs/source src
         pipenv run sphinx-multiversion docs/source docs/build
     - name: Commit files
