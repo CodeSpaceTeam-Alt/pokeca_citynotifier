@@ -33,10 +33,12 @@ jobs:
     - name: checkout branch
       if: contains(github.ref, 'refs/tags/')
       run: |
+        git fetch
         git checkout main
     - name: checkout branch in MR
       if: contains(github.ref, 'merge')
       run: |
+        git fetch
         git checkout $GITHUB_HEAD_REF
     - name: Generate Document
       run: |
