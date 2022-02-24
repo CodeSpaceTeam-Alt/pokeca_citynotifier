@@ -14,7 +14,11 @@ logger = getLogger(__name__)
 
 class ChromeSeleniumWrapper():
     """
-    Selenium Controller for Google-Chrome
+    Selenium Controller by chromedriver
+
+    Note :
+        you shall get chromedriver.
+        see: https://chromedriver.chromium.org/downloads
     """
 
     def __init__(self, save_dir, driver_fn):

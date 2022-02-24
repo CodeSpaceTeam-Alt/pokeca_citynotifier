@@ -1,4 +1,5 @@
-""" utility for cityleague_notifier module
+"""
+Utility software for this Package
 """
 
 from argparse import ArgumentParser
@@ -12,16 +13,11 @@ from selenium_searcher.chrome import ChromeSeleniumWrapper
 
 
 def get_args():
-    """get_args, function
-
-    get command-line arguments
+    """
+    get command-line arguments  
 
     Returns:
-        NameSpace: parser.parse_args() returns
-
-    Note:
-        No note
-
+        NameSpace: parser.parse_args()
     """
     parser = ArgumentParser(description='City League Notifier')
     parser.add_argument('--token', type=str, default="", help='token')
@@ -31,16 +27,15 @@ def get_args():
 
 
 def main():
-    """main, function
-
+    """
     main function
 
     Args:
-        No Argument
-
-    Returns:
-        None:
+        token (str) : LINE Secret-Token value
+        config (str) : config file path
+        version (bool, optional) : Flag to show Version
     """
+
     args = get_args()
     opt = args.parse_args()
     if opt.version is True:
