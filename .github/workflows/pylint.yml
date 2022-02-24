@@ -26,13 +26,10 @@ jobs:
         pipenv install --dev
     - name: Analysing the code with pylint
       run: |
-        pipenv run python3 -m pylint --extension-pkg-allow-list=netifaces -d R0903 $(find src -name "*.py" -not -name __init__.py | xargs)
+        pipenv run python3 -m pylint --extension-pkg-allow-list=netifaces -d R0801 -d R0903 $(find src -name "*.py" -not -name __init__.py | xargs)
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        pipenv run python3 -m flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        pipenv run python3 -m flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        pipenv run python3 -m flake8 src --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Lint with bandit
       run: |
-        pipenv run python3 -m bandit .
+        pipenv run python3 -m bandit src
