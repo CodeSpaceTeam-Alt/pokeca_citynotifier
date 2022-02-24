@@ -20,9 +20,23 @@ class PlayerClubSearcher():
 
     @property
     def url(self):
+        """watching URL"""
         return "/".join([self.baseurl, self.league_id])
 
-    def search_league_dict(self, league_id=""):
+    def search_league(self, league_id=""):
+        """Get All tournament list
+
+        Args:
+            league_id (str): city_league id.
+
+        Examples:
+            if you check "https://event.pokemon-card.com/prior-reception-gym-events/XXXX" enable to entry.
+            >>> entry_list("XXXX")
+
+        Returns:
+            dict: tournament dict
+        """
+
         if len(league_id) != 0:
             self.league_id = league_id
         logger.info("search DB for %s", self.url)
@@ -46,3 +60,31 @@ class PlayerClubSearcher():
                                 "時間": elem_time.text,
                                 "ステータス": elem_btn.text}})
         return league_dict
+
+    def search_league_with_filter(self, league_id, find_filter):
+        """get tournament list which can entry within filter
+
+        Args:
+            league_id (str): city_league id.
+            find_filter (dict): filter your wish regulation
+
+        Examples:
+            if you check "https://event.pokemon-card.com/prior-reception-gym-events/XXXX" enable to entry.
+            >>> entry_list("XXXX", {"ステータス": "エントリー"})
+
+        Returns:
+            dict: filtered tournament dict
+        """
+
+        filtered_entry = {}
+        all_entry = self.search_league(league_id)
+        ret = True
+        for tournament_id, detail in all_entry.items():
+            for key, value in find_filter.items():
+                if detail[key] != value:
+                    ret = False
+                    break
+            if ret is True:
+                filtered_entry.update({tournament_id: detail})
+            ret = True
+        return filtered_entry
