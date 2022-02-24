@@ -103,7 +103,7 @@ class CityLeagueManager():
             if id_value not in self.old_result:
                 for key, value in detail.items():
                     event_info.append(key + "\t" + value)
-            msg = "\n".join(event_info)
-            if self.messanger.notify(msg) is False:
-                return False
+                msg = "\n".join(event_info)
+                if self.messanger.notify(msg) is False:
+                    return False
         return True
