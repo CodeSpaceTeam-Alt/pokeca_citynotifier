@@ -30,8 +30,18 @@ class PlayerClubSearcher():
             league_id (str): city_league id.
 
         Examples:
-            if you check "https://event.pokemon-card.com/prior-reception-gym-events/XXXX" enable to entry.
-            >>> entry_list("XXXX")
+            if you check...
+
+            - url : "https://event.pokemon-card.com/prior-reception-gym-events/XXXX"
+
+            >>> search_league("XXXX")
+            {"12345":{"都道府県":"東京都",
+                      "店舗":"カードショップ",
+                      "日付":"2021/12/31",
+                      "時間":"9:00",
+                      "ステータス":"エントリー"},
+             ....
+            }
 
         Returns:
             dict: tournament dict
@@ -69,8 +79,19 @@ class PlayerClubSearcher():
             find_filter (dict): filter your wish regulation
 
         Examples:
-            if you check "https://event.pokemon-card.com/prior-reception-gym-events/XXXX" enable to entry.
-            >>> entry_list("XXXX", {"ステータス": "エントリー"})
+            if you check...
+
+            - url : "https://event.pokemon-card.com/prior-reception-gym-events/XXXX"
+            - enable to entry
+
+            >>> search_league("XXXX", {"ステータス": "エントリー"})
+            {"12345":{"都道府県":"東京都",
+                      "店舗":"カードショップ",
+                      "日付":"2021/12/31",
+                      "時間":"9:00",
+                      "ステータス":"エントリー"},
+             ....
+            }
 
         Returns:
             dict: filtered tournament dict
