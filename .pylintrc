@@ -1,0 +1,14 @@
+[MASTER]
+; extension-pkg-allow-list=tensorflow
+fail-under=9.8
+
+[BASIC]
+good-names=f,
+           fn
+
+[EXCEPTIONS]
+overgeneral-exceptions=BaseException,
+                       Exception
+
+[FORMAT]
+max-line-length=127
