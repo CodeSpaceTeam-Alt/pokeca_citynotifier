@@ -7,6 +7,7 @@ from os import path
 from line_message.line_message import Line
 from selenium_searcher.league_searcher import PlayerClubSearcher
 
+
 class CityLeagueManager():
     """CityLeague Management Class
 
