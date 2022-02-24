@@ -1,3 +1,4 @@
 {
-    "driver_fn": "/usr/local/lib/chromedriver/chromedriver"
+    "driver_fn": "/usr/local/lib/chromedriver/chromedriver",
+    "log_fn": "./city_empty.json"
 }

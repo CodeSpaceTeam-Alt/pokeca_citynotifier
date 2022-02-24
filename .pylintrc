@@ -3,7 +3,8 @@
 fail-under=9.8
 
 [BASIC]
-; good-names=id
+good-names=f,
+           fn
 
 [EXCEPTIONS]
 overgeneral-exceptions=BaseException,
