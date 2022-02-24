@@ -1,4 +1,5 @@
-"""notify_city_league
+"""
+Pokemon-Card City League Notifier module
 """
 
 import json
@@ -34,8 +35,7 @@ class CityLeagueManager():
             >>> load_result("old_result.json")
 
         Returns:
-            False : file not found.
-            True  : other
+            Bool : if file not found, return False. Other return True.
         """
 
         if path.exists(fn) is False:
@@ -54,7 +54,7 @@ class CityLeagueManager():
             >>> save_result("old_result.json")
 
         Returns:
-            True  : Any
+            Bool : Always return True
         """
         with open(fn, "w", encoding="utf-8") as f:
             json.dump(self.league_dict, f, indent=2, ensure_ascii=False)
@@ -103,7 +103,7 @@ class CityLeagueManager():
             if id_value not in self.old_result:
                 for key, value in detail.items():
                     event_info.append(key + "\t" + value)
-            msg = "\n".join(event_info)
-            if self.messanger.notify(msg) is False:
-                return False
+                msg = "\n".join(event_info)
+                if self.messanger.notify(msg) is False:
+                    return False
         return True

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cityleague_notifier package &mdash; cityleague_notifier 1.0.0 documentation</title>
+  <title>cityleague_notifier package &mdash; cityleague_notifier 1.0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
             <a href="index.html" class="icon icon-home"> cityleague_notifier
           </a>
               <div class="version">
-                1.0.0
+                1.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -93,7 +93,7 @@
 </section>
 <section id="module-cityleague_notifier.city_notifier">
 <span id="cityleague-notifier-city-notifier-module"></span><h2>cityleague_notifier.city_notifier module<a class="headerlink" href="#module-cityleague_notifier.city_notifier" title="Permalink to this headline"></a></h2>
-<p>notify_city_league</p>
+<p>Pokemon-Card City League Notifier module</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="cityleague_notifier.city_notifier.CityLeagueManager">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cityleague_notifier.city_notifier.</span></span><span class="sig-name descname"><span class="pre">CityLeagueManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driver</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cityleague_notifier.city_notifier.CityLeagueManager" title="Permalink to this definition"></a></dt>
@@ -157,11 +157,10 @@ False : new tournament is not exist.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>file not found.
-True  : other</p>
+<dd class="field-odd"><p>if file not found, return False. Other return True.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>False</p>
+<dd class="field-even"><p>Bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -197,10 +196,10 @@ True  : other</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Any</p>
+<dd class="field-odd"><p>Always return True</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>True</p>
+<dd class="field-even"><p>Bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -210,37 +209,32 @@ True  : other</p>
 </section>
 <section id="module-cityleague_notifier.util">
 <span id="cityleague-notifier-util-module"></span><h2>cityleague_notifier.util module<a class="headerlink" href="#module-cityleague_notifier.util" title="Permalink to this headline"></a></h2>
-<p>utility for cityleague_notifier module</p>
+<p>Utility software for this Package</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="cityleague_notifier.util.get_args">
 <span class="sig-prename descclassname"><span class="pre">cityleague_notifier.util.</span></span><span class="sig-name descname"><span class="pre">get_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cityleague_notifier.util.get_args" title="Permalink to this definition"></a></dt>
-<dd><p>get_args, function</p>
-<p>get command-line arguments</p>
+<dd><p>get command-line arguments</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>parser.parse_args() returns</p>
+<dd class="field-odd"><p>parser.parse_args()</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>NameSpace</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>No note</p>
-</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cityleague_notifier.util.main">
 <span class="sig-prename descclassname"><span class="pre">cityleague_notifier.util.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cityleague_notifier.util.main" title="Permalink to this definition"></a></dt>
-<dd><p>main, function</p>
-<p>main function</p>
+<dd><p>main function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Argument</strong> (<em>No</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>None</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>token</strong> (<em>str</em>) – LINE Secret-Token value</p></li>
+<li><p><strong>config</strong> (<em>str</em>) – config file path</p></li>
+<li><p><strong>version</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag to show Version</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
