@@ -11,7 +11,8 @@ Welcome to cityleague_notifier's documentation!
    :caption: Contents:
 
    cityleague_notifier.rst
-
+   modules.rst
+   selenium_searcher.rst
 
 
 Indices and tables
