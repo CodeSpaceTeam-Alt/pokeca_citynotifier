@@ -71,8 +71,13 @@ class CityLeagueManager():
             find_filter (dict): filter your wish regulation
 
         Examples:
-            if you check "https://event.pokemon-card.com/prior-reception-gym-events/XXXX" enable to entry.
+            if you check...
+
+            - url : "https://event.pokemon-card.com/prior-reception-gym-events/XXXX"
+            - enable to entry
+
             >>> check_entry("XXXX", {"ステータス": "エントリー"})
+            True
 
         Returns:
             True  : new tournament is exist.
