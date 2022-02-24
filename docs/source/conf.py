@@ -14,11 +14,11 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../../src'))
 
-from pyproj_template import VERSION
+from cityleague_notifier import VERSION
 
 # -- Project information -----------------------------------------------------
 
-project = 'pyproject_template'
+project = 'cityleague_notifier'
 copyright = '2022, Alt'
 author = 'Alt'
 
