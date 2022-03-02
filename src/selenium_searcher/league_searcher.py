@@ -12,29 +12,23 @@ logger = getLogger(__name__)
 class PlayerClubSearcher():
     """Official Pokemon-Card Players Club Web Scraper
     """
-    def __init__(self, driver, league_id=""):
+    def __init__(self, driver):
         self.driver = driver
-        self.baseurl = "https://event.pokemon-card.com/prior-reception-gym-events"
-        self.league_id = league_id
         self.league_title = ""
+        self.url = ""
 
-    @property
-    def url(self):
-        """watching URL"""
-        return "/".join([self.baseurl, self.league_id])
-
-    def search_league(self, league_id=""):
+    def search_league(self, league_url=""):
         """Get All tournament list
 
         Args:
-            league_id (str): city_league id.
+            league_url (str): city_league id.
 
         Examples:
             if you check...
 
             - url : "https://event.pokemon-card.com/prior-reception-gym-events/XXXX"
 
-            >>> search_league("XXXX")
+            >>> search_league("https://event.pokemon-card.com/prior-reception-gym-events/XXXX")
             {"12345":{"都道府県":"東京都",
                       "店舗":"カードショップ",
                       "日付":"2021/12/31",
@@ -46,12 +40,9 @@ class PlayerClubSearcher():
         Returns:
             dict: tournament dict
         """
-
-        if len(league_id) != 0:
-            self.league_id = league_id
-        logger.info("search DB for %s", self.url)
-
-        self.driver.get(self.url)
+        logger.info("search DB for %s", league_url)
+        self.url = league_url
+        self.driver.get(league_url)
 
         self.league_title = self.driver.find_element(By.CLASS_NAME, "eventDetailMainVisual__infoAreaTitle").text
         elems_league_list = self.driver.find_elements(By.CLASS_NAME, "eventDetailContents__leagueListBoxColumns")
@@ -71,11 +62,11 @@ class PlayerClubSearcher():
                                 "ステータス": elem_btn.text}})
         return league_dict
 
-    def search_league_with_filter(self, league_id, find_filter):
+    def search_league_with_filter(self, league_url, find_filter):
         """get tournament list which can entry within filter
 
         Args:
-            league_id (str): city_league id.
+            league_url (str): city_league URL.
             find_filter (dict): filter your wish regulation
 
         Examples:
@@ -84,7 +75,7 @@ class PlayerClubSearcher():
             - url : "https://event.pokemon-card.com/prior-reception-gym-events/XXXX"
             - enable to entry
 
-            >>> search_league("XXXX", {"ステータス": "エントリー"})
+            >>> search_league("https://event.pokemon-card.com/prior-reception-gym-events/XXXX", {"ステータス": "エントリー"})
             {"12345":{"都道府県":"東京都",
                       "店舗":"カードショップ",
                       "日付":"2021/12/31",
@@ -98,7 +89,7 @@ class PlayerClubSearcher():
         """
 
         filtered_entry = {}
-        all_entry = self.search_league(league_id)
+        all_entry = self.search_league(league_url)
         ret = True
         for tournament_id, detail in all_entry.items():
             for key, value in find_filter.items():
@@ -109,3 +100,28 @@ class PlayerClubSearcher():
                 filtered_entry.update({tournament_id: detail})
             ret = True
         return filtered_entry
+
+    def dump_league_list(self):
+        """get city League list now holded
+
+        Args:
+            None
+
+        Examples:
+            >>> dump_league_list()
+            1201    シティリーグ シーズン5 【シティリーグ シーズン5】
+            1202    シティリーグ シーズン5 【シティリーグ シーズン5 ジュニア】
+
+        Returns:
+            bool: always return True
+        """
+
+        self.driver.get("https://event.pokemon-card.com/events/")
+        elems_league_list = self.driver.find_elements(By.CLASS_NAME, "eventList__contents")
+        for elem_league in elems_league_list:
+            url = elem_league.get_attribute("href")
+            elem_status = elem_league.find_element(By.CLASS_NAME, "eventList__entryWrapper").text
+            elem_title = elem_league.find_element(By.CLASS_NAME, "eventList__infoAreaTitle").text
+            if elem_status in ["エントリー受付中", "受付期間外"] and "シティリーグ" in elem_title:
+                print(elem_status, elem_title, url)
+        return True

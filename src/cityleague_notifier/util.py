@@ -23,6 +23,7 @@ def get_args():
     parser.add_argument('--token', type=str, default="", help='token')
     parser.add_argument('-v', '--version', action="store_true", help='show version')
     parser.add_argument('-c', '--config', default="./config/pokeca_config.json")
+    parser.add_argument('--ev_list', action="store_true", help="get event list")
     return parser
 
 
@@ -50,10 +51,13 @@ def main():
     try:
         selenium_d = ChromeSeleniumWrapper("log", user_config["driver_fn"])
         manager = CityLeagueManager(token=opt.token, driver=selenium_d.driver)
-        manager.load_result(user_config["log_fn"])
-        if manager.check_entry("1201", {"ステータス": "エントリー"}) is True:
-            ret = manager.notify_message()
-        manager.save_result(user_config["log_fn"])
+        if opt.ev_list is True:
+            ret = manager.dump_eventlist()
+        else:
+            manager.load_result(user_config["log_fn"])
+            if manager.check_entry(user_config["city_url"], user_config["tournament_filter"]) is True:
+                ret = manager.notify_message()
+            manager.save_result(user_config["log_fn"])
     finally:
         selenium_d.close()
     return ret

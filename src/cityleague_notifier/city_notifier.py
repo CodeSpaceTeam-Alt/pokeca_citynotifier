@@ -60,14 +60,14 @@ class CityLeagueManager():
             json.dump(self.league_dict, f, indent=2, ensure_ascii=False)
         return True
 
-    def check_entry(self, league_id, find_filter):
+    def check_entry(self, city_url, find_filter):
         """ Check new tournament entry exist
 
         Note:
             if you wish to compare old result, shall execute self.load_result before doing this function.
 
         Args:
-            league_id (str): city_league id.
+            city_url (str): city_league entry page URL.
             find_filter (dict): filter your wish regulation
 
         Examples:
@@ -76,7 +76,7 @@ class CityLeagueManager():
             - url : "https://event.pokemon-card.com/prior-reception-gym-events/XXXX"
             - enable to entry
 
-            >>> check_entry("XXXX", {"ステータス": "エントリー"})
+            >>> check_entry("https://event.pokemon-card.com/prior-reception-gym-events/XXXX", {"ステータス": "エントリー"})
             True
 
         Returns:
@@ -84,11 +84,28 @@ class CityLeagueManager():
             False : new tournament is not exist.
         """
         ret = False
-        self.league_dict = self.searcher.search_league_with_filter(league_id, find_filter)
+        self.league_dict = self.searcher.search_league_with_filter(city_url, find_filter)
         for tournament_id in self.league_dict:
             if tournament_id not in self.old_result:
                 ret = True
         return ret
+
+    def dump_eventlist(self):
+        """ Dump City League List
+
+        Args:
+            None
+
+        Examples:
+            >>> dump_eventlist()
+            1201    シティリーグ シーズン5 【シティリーグ シーズン5】
+            1202    シティリーグ シーズン5 【シティリーグ シーズン5 ジュニア】
+
+        Returns:
+            True  : new tournament is exist.
+            False : new tournament is not exist.
+        """
+        return self.searcher.dump_league_list()
 
     def notify_message(self):
         """notify_message, function
