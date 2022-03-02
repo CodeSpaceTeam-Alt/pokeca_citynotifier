@@ -51,7 +51,7 @@ def main():
         selenium_d = ChromeSeleniumWrapper("log", user_config["driver_fn"])
         manager = CityLeagueManager(token=opt.token, driver=selenium_d.driver)
         manager.load_result(user_config["log_fn"])
-        if manager.check_entry("1201", {"ステータス": "エントリー"}) is True:
+        if manager.check_entry(user_config["city_id"], user_config["tournament_filter"]) is True:
             ret = manager.notify_message()
         manager.save_result(user_config["log_fn"])
     finally:
