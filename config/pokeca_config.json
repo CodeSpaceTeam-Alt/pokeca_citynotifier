@@ -1,6 +1,6 @@
 {
     "driver_fn": "/usr/local/lib/chromedriver/chromedriver",
     "log_fn": "./city_empty.json",
-    "city_id": "1201",
+    "city_url": "https://event.pokemon-card.com/prior-reception-gym-events/1201/",
     "tournament_filter": {"ステータス": "エントリー", "都道府県":"東京都"}
 }
