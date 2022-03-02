@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>selenium_searcher package &mdash; cityleague_notifier 1.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> cityleague_notifier
+          </a>
+              <div class="version">
+                1.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cityleague_notifier.html">cityleague_notifier package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">selenium_searcher package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-selenium_searcher.chrome">selenium_searcher.chrome module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-selenium_searcher.err_deco">selenium_searcher.err_deco module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-selenium_searcher.league_searcher">selenium_searcher.league_searcher module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-selenium_searcher">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cityleague_notifier</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>selenium_searcher package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/selenium_searcher.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="selenium-searcher-package">
+<h1>selenium_searcher package<a class="headerlink" href="#selenium-searcher-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-selenium_searcher.chrome">
+<span id="selenium-searcher-chrome-module"></span><h2>selenium_searcher.chrome module<a class="headerlink" href="#module-selenium_searcher.chrome" title="Permalink to this headline"></a></h2>
+<p>selenium wrapper for google-chrome</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="selenium_searcher.chrome.ChromeSeleniumWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">selenium_searcher.chrome.</span></span><span class="sig-name descname"><span class="pre">ChromeSeleniumWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">driver_fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.chrome.ChromeSeleniumWrapper" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Selenium Controller by chromedriver</p>
+<dl class="simple">
+<dt>Note :</dt><dd><p>you shall get chromedriver.
+see: <a class="reference external" href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="selenium_searcher.chrome.ChromeSeleniumWrapper.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.chrome.ChromeSeleniumWrapper.close" title="Permalink to this definition"></a></dt>
+<dd><p>close selenium driver</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-selenium_searcher.err_deco">
+<span id="selenium-searcher-err-deco-module"></span><h2>selenium_searcher.err_deco module<a class="headerlink" href="#module-selenium_searcher.err_deco" title="Permalink to this headline"></a></h2>
+<p>Error Decorator modules</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="selenium_searcher.err_deco.general_err_deco">
+<span class="sig-prename descclassname"><span class="pre">selenium_searcher.err_deco.</span></span><span class="sig-name descname"><span class="pre">general_err_deco</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.err_deco.general_err_deco" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="selenium_searcher.err_deco.selenium_err_deco">
+<span class="sig-prename descclassname"><span class="pre">selenium_searcher.err_deco.</span></span><span class="sig-name descname"><span class="pre">selenium_err_deco</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.err_deco.selenium_err_deco" title="Permalink to this definition"></a></dt>
+<dd><p>selenium err decorator</p>
+</dd></dl>
+
+</section>
+<section id="module-selenium_searcher.league_searcher">
+<span id="selenium-searcher-league-searcher-module"></span><h2>selenium_searcher.league_searcher module<a class="headerlink" href="#module-selenium_searcher.league_searcher" title="Permalink to this headline"></a></h2>
+<p>official pokemon card HP searcher module</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="selenium_searcher.league_searcher.PlayerClubSearcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">selenium_searcher.league_searcher.</span></span><span class="sig-name descname"><span class="pre">PlayerClubSearcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">driver</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.league_searcher.PlayerClubSearcher" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Official Pokemon-Card Players Club Web Scraper</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="selenium_searcher.league_searcher.PlayerClubSearcher.dump_league_list">
+<span class="sig-name descname"><span class="pre">dump_league_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.league_searcher.PlayerClubSearcher.dump_league_list" title="Permalink to this definition"></a></dt>
+<dd><p>get city League list now holded</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dump_league_list</span><span class="p">()</span>
+<span class="go">1201    シティリーグ シーズン5 【シティリーグ シーズン5】</span>
+<span class="go">1202    シティリーグ シーズン5 【シティリーグ シーズン5 ジュニア】</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>always return True</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="selenium_searcher.league_searcher.PlayerClubSearcher.search_league">
+<span class="sig-name descname"><span class="pre">search_league</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">league_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.league_searcher.PlayerClubSearcher.search_league" title="Permalink to this definition"></a></dt>
+<dd><p>Get All tournament list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>league_url</strong> (<em>str</em>) – city_league id.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>if you check…</p>
+<ul class="simple">
+<li><p>url : “<a class="reference external" href="https://event.pokemon-card.com/prior-reception-gym-events/XXXX">https://event.pokemon-card.com/prior-reception-gym-events/XXXX</a>”</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">search_league</span><span class="p">(</span><span class="s2">&quot;https://event.pokemon-card.com/prior-reception-gym-events/XXXX&quot;</span><span class="p">)</span>
+<span class="go">{&quot;12345&quot;:{&quot;都道府県&quot;:&quot;東京都&quot;,</span>
+<span class="go">          &quot;店舗&quot;:&quot;カードショップ&quot;,</span>
+<span class="go">          &quot;日付&quot;:&quot;2021/12/31&quot;,</span>
+<span class="go">          &quot;時間&quot;:&quot;9:00&quot;,</span>
+<span class="go">          &quot;ステータス&quot;:&quot;エントリー&quot;},</span>
+<span class="go"> ....</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>tournament dict</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="selenium_searcher.league_searcher.PlayerClubSearcher.search_league_with_filter">
+<span class="sig-name descname"><span class="pre">search_league_with_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">league_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">find_filter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selenium_searcher.league_searcher.PlayerClubSearcher.search_league_with_filter" title="Permalink to this definition"></a></dt>
+<dd><p>get tournament list which can entry within filter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>league_url</strong> (<em>str</em>) – city_league URL.</p></li>
+<li><p><strong>find_filter</strong> (<em>dict</em>) – filter your wish regulation</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>if you check…</p>
+<ul class="simple">
+<li><p>url : “<a class="reference external" href="https://event.pokemon-card.com/prior-reception-gym-events/XXXX">https://event.pokemon-card.com/prior-reception-gym-events/XXXX</a>”</p></li>
+<li><p>enable to entry</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">search_league</span><span class="p">(</span><span class="s2">&quot;https://event.pokemon-card.com/prior-reception-gym-events/XXXX&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;ステータス&quot;</span><span class="p">:</span> <span class="s2">&quot;エントリー&quot;</span><span class="p">})</span>
+<span class="go">{&quot;12345&quot;:{&quot;都道府県&quot;:&quot;東京都&quot;,</span>
+<span class="go">          &quot;店舗&quot;:&quot;カードショップ&quot;,</span>
+<span class="go">          &quot;日付&quot;:&quot;2021/12/31&quot;,</span>
+<span class="go">          &quot;時間&quot;:&quot;9:00&quot;,</span>
+<span class="go">          &quot;ステータス&quot;:&quot;エントリー&quot;},</span>
+<span class="go"> ....</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>filtered tournament dict</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-selenium_searcher">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-selenium_searcher" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Alt.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v1.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../v1.0.0/selenium_searcher.html">v1.0.0</a></dd>
+      <dd><a href="selenium_searcher.html">v1.1.0</a></dd>
+    </dl>
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../develop/selenium_searcher.html">develop</a></dd>
+      <dd><a href="../main/selenium_searcher.html">main</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
