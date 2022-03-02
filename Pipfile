@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 selenium = "*"
-line-message = {ref = "1.1.0", git = "ssh://git@github.com/CodeSpaceTeam-Alt/LINE-notify.git"}
+line-message = {ref = "1.1.0", git = "https://github.com/CodeSpaceTeam-Alt/LINE-notify.git"}
 
 [dev-packages]
 pylint = "*"
