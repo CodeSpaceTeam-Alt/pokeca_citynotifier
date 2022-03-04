@@ -6,9 +6,9 @@ from argparse import ArgumentParser
 import sys
 from os import path
 import json
-from logging import basicConfig, INFO, DEBUG, getLogger
+from logging import getLogger
 
-from cityleague_notifier import VERSION
+from cityleague_notifier import VERSION, setup_logger
 from cityleague_notifier.city_notifier import CityLeagueManager
 from selenium_searcher.chrome import ChromeSeleniumWrapper
 
@@ -128,11 +128,7 @@ def main():
 
     parser = get_args()
     args = parser.parse_args()
-
-    if args.verbose is True:
-        basicConfig(level=DEBUG)
-    else:
-        basicConfig(level=INFO)
+    setup_logger(verbose=args.verbose)
 
     if hasattr(args, 'handler'):
         args.handler(args)
