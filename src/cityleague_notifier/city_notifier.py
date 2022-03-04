@@ -115,7 +115,7 @@ class CityLeagueManager():
             True : if message sending is success.
             False : if message sending is failed.
         """
-        for id_value, detail in self.league_dict.items():
+        for id_value, detail in self.searcher.filtered_entry.items():
             event_info = ["[受付中]" + self.searcher.league_title, self.searcher.url]
             if id_value not in self.old_result:
                 for key, value in detail.items():

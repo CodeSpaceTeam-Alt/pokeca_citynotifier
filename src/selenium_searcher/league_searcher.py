@@ -16,6 +16,7 @@ class PlayerClubSearcher():
         self.driver = driver
         self.league_title = ""
         self.url = ""
+        self.filtered_entry = {}
 
     def search_league(self, league_url=""):
         """Get All tournament list
@@ -54,13 +55,29 @@ class PlayerClubSearcher():
             elem_date = elem_league.find_element(By.CLASS_NAME, "eventDetailContents__leagueListBoxItemDate")
             elem_time = elem_league.find_element(By.CLASS_NAME, "eventDetailContents__leagueListBoxItemTime")
             elem_btn = elem_league.find_element(By.CLASS_NAME, "eventDetailContents__leagueListBoxItemButton")
-            league_dict.update({id_value: {
-                                "都道府県": elem_state.text,
-                                "店舗": elem_shop.text,
-                                "日付": elem_date.text,
-                                "時間": elem_time.text,
-                                "ステータス": elem_btn.text}})
+            if len(elem_btn.text) != 0:
+                league_dict.update({id_value: {
+                                    "都道府県": elem_state.text,
+                                    "店舗": elem_shop.text,
+                                    "日付": elem_date.text,
+                                    "時間": elem_time.text,
+                                    "ステータス": elem_btn.text}})
         return league_dict
+
+    def dump_tournament_info(self, league_dict):
+        """get tournament list which can entry within filter
+
+        Args:
+            league_dict (dict): city league information dict get from search_league
+        """
+        for detail in league_dict.values():
+            logger.debug("\n 都道府県:\t%s\n 店舗:\t%s\n 日付:\t%s\n 時間:\t%s\n ステータス:\t%s\n",
+                         detail["都道府県"],
+                         detail["店舗"],
+                         detail["日付"],
+                         detail["時間"],
+                         detail["ステータス"]
+                       )
 
     def search_league_with_filter(self, league_url, find_filter):
         """get tournament list which can entry within filter
@@ -88,8 +105,8 @@ class PlayerClubSearcher():
             dict: filtered tournament dict
         """
 
-        filtered_entry = {}
         all_entry = self.search_league(league_url)
+        self.dump_tournament_info(all_entry)
         ret = True
         for tournament_id, detail in all_entry.items():
             for key, value in find_filter.items():
@@ -97,9 +114,10 @@ class PlayerClubSearcher():
                     ret = False
                     break
             if ret is True:
-                filtered_entry.update({tournament_id: detail})
+                self.filtered_entry.update({tournament_id: detail})
             ret = True
-        return filtered_entry
+        self.dump_tournament_info(self.filtered_entry)
+        return self.filtered_entry
 
     def dump_league_list(self):
         """get city League list now holded
@@ -123,5 +141,5 @@ class PlayerClubSearcher():
             elem_status = elem_league.find_element(By.CLASS_NAME, "eventList__entryWrapper").text
             elem_title = elem_league.find_element(By.CLASS_NAME, "eventList__infoAreaTitle").text
             if elem_status in ["エントリー受付中", "受付期間外"] and "シティリーグ" in elem_title:
-                print(elem_status, elem_title, url)
+                logger.info("\n status:\t%s\n name:\t%s\n url:\t%s\n=============", elem_status, elem_title, url)
         return True
